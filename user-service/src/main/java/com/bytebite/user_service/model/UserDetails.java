@@ -41,7 +41,7 @@ public class UserDetails {
     private Role role;
 
     @Builder.Default
-    private boolean deleted = false;
+    private Boolean deleted = Boolean.FALSE;
 
     @Enumerated(EnumType.STRING)
     @Builder.Default
