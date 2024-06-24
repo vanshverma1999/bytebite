@@ -2,6 +2,8 @@ package com.bytebite.restaurant_service.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -16,15 +18,18 @@ import org.hibernate.annotations.Where;
 @NoArgsConstructor
 @Builder
 @Where(clause = "deleted = false")
-public class Restaurant {
+public class MenuItem {
 
     @Id
     private Long id;
     private String name;
-    private String address;
-    private String CuisineType;
-    private Double Rating;
-    private Long contactInfo;
+    private String description;
+    private Double price;
+    private Boolean availability;
+
+    @ManyToOne
+    @JoinTable(name = "restaurant_menu")
+    private Restaurant restaurant;
 
     @Builder.Default
     private Boolean deleted = Boolean.FALSE;

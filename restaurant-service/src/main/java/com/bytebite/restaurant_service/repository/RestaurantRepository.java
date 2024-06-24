@@ -1,4 +1,9 @@
 package com.bytebite.restaurant_service.repository;
 
-public interface RestaurantRepository extends org.springframework.data.jpa.repository.JpaRepository<com.bytebite.restaurant_service.model.Restaurant, java.lang.Long> {
+import com.bytebite.restaurant_service.model.Restaurant;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface RestaurantRepository extends JpaRepository<Restaurant, Long> {
 }
